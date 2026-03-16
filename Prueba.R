@@ -120,6 +120,8 @@ menor_desempeno <- participantes %>%
 
 menor_desempeno
 
+
+#Resumen de la base 
 participantes %>%
   summarise(
     participantes = n(),
@@ -127,6 +129,7 @@ participantes %>%
     asistencia_promedio = mean(total_asistencia)
   )
 
+# Validacion de errores
 n_distinct(participantes$Email) == nrow(participantes)
 
 participantes %>%
@@ -148,5 +151,5 @@ participantes %>%
   select(starts_with("asistencia")) %>%
   summarise_all(~all(. %in% c(0,1)))
 
-error_de_mail <- participantes %>%
+participantes %>%
   filter(posible_error_email)
