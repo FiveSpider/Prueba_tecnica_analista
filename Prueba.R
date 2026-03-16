@@ -9,13 +9,6 @@ library(stringi)
 library(tidyr)
 library(stringdist)
 
-quitar_acentos <- function(texto){
-  texto %>%
-    stringi::stri_trans_nfd() %>%
-    str_replace_all("\\p{Mn}", "") %>%
-    stringi::stri_trans_nfc()
-}
-
 
 # 1 Leer la base de datos
 
